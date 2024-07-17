@@ -8,6 +8,11 @@ def print_stars(n):
         print("*", end=" ")
         print_stars(n - 1)
 
+def print_stars2(n):
+    if n > 0:
+        print("*  ", end=" ")
+        print_stars2(n - 1)
+
 def numpat(n, i=1):
     if i <= n:
         print_stars(i)
@@ -22,17 +27,18 @@ def numpatR(n):
 
 def pyramid(n, i=1):
     if i <= n:
-        print_spaces(n-i)
-        print_stars(2 * i - 1)
+        print_spaces(n - i)
+        print_stars2(i)
         print("")
         pyramid(n, i + 1)
 
-def pyramidR(n, i):
-    if i > 0:
-        print_spaces(n-i)
-        print_stars((2 * i) - 1)
+
+def pyramidR(n, i=1):
+    if i <= n:
+        print_spaces(i - 1)
+        print_stars2(n - i + 1)
         print("")
-        pyramidR(n, i - 1)
+        pyramidR(n, i + 1)
 
 def numpatright(n, i=1):
     if i <= n:
@@ -49,6 +55,6 @@ numpatR(x)
 print('-----------------------')
 pyramid(x)
 print('-----------------------')
-pyramidR(x,x)
+pyramidR(x)
 print('-----------------------')
 numpatright(x)
